@@ -22,7 +22,7 @@ import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import InfoIcon from '@mui/icons-material/Info';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import CategoryIcon from '@mui/icons-material/Category';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import Link from 'next/link';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
@@ -110,7 +110,7 @@ export default function MiniDrawer({ children }) {
     { icon: <HomeIcon />, target: '/' },
     { icon: <CalendarMonthIcon />, target: '/event' },
     { icon: <InfoIcon />, target: '/about' },
-    { icon: <EmojiEventsIcon />, target: '/winners' },
+    { icon: <CategoryIcon />, target: '/merchandise' },
     { icon: <FeedbackIcon />, target: '/feedback' }
   ];
   return (
@@ -149,7 +149,7 @@ export default function MiniDrawer({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Home', 'Events', 'About', 'Past Winners', 'Feedback'].map((text, index) => (
+          {['Home', 'Events', 'About', 'Merchandize', 'Feedback'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{

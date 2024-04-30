@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Technokratos -EMS
 
-## Getting Started
+### [GITHUB Link](https://github.com/alokVerma749/technokratos-ems/)
+### [Live Link](https://technokratos-ems.vercel.app/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## System Design
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![WhatsApp Image 2024-04-30 at 16 03 46_3d84139e](https://github.com/alokVerma749/technokratos-ems/assets/87599400/2516757b-6372-4880-85d0-27c05911186f)
+![WhatsApp Image 2024-04-30 at 16 03 46_f64c5d98](https://github.com/alokVerma749/technokratos-ems/assets/87599400/17370c2f-1ec9-4501-9476-23900cb0b161)
+![WhatsApp Image 2024-04-30 at 16 03 46_0c3bce9a](https://github.com/alokVerma749/technokratos-ems/assets/87599400/a9453fda-f9b3-4bf7-8122-f03fc77c8f8b)
+![WhatsApp Image 2024-04-30 at 16 03 46_fd76e687](https://github.com/alokVerma749/technokratos-ems/assets/87599400/7f6278f1-6d60-418a-ad6a-7e50305d8364)

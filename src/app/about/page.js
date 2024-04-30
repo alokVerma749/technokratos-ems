@@ -182,8 +182,8 @@ const About = () => {
 
   return (
     <>
-      <section className="mb-4 border-b-2">
-        <p className="font-xl md:text-2xl lg:text-4xl font-bold text-indigo-700 text-center p-6 ml-10">
+      <section className="mb-4">
+        <p className="font-xl md:text-2xl lg:text-4xl font-bold border-b-2 pb-2 mb-4 text-indigo-700 text-center p-6 ml-10">
           About Our Society And Events
         </p>
         <div>
@@ -221,6 +221,7 @@ const About = () => {
         })}
       </div>
       <h2 className="text-3xl font-bold underline text-indigo-600 flex justify-center items-center">
+
         Our Current Members
       </h2>
       <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
