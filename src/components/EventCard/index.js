@@ -10,7 +10,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 function EventCard({ name, description, noOfMember, venue, type}) {
  
   return (
-    <Card className='shadow-xl rounded w-1/3 m-6 p-2 hover:shadow-2xl hover:scale-105 transition-all'>
+    <Card className='shadow-xl rounded w-full md:w-[400px] lg:w-[370px] m-6 p-2 hover:shadow-2xl'>
       <CardActionArea className=''>
         <CardMedia
         

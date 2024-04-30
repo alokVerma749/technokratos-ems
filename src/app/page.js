@@ -18,7 +18,7 @@ export default function Home() {
   <div className="flex justify-between gap-4 flex-col-reverse md:flex-row">
    <div className="flex flex-col md:w-1/2 mt-12 gap-5 p-3">
     <h2 className="font-extrabold text-6xl min-w-4/5">
-     Welcome, To <span className="text-indigo-600">Technokratos'24</span>{" "}
+     Welcome, To <span className="text-indigo-600">Technokratos&apos;24</span>{" "}
     </h2>
     <p className="text-gray-600 text-sm">
      your premier destination for organizing both formal and informal events
