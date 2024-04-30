@@ -54,7 +54,7 @@ const CreateEvent = () => {
 
   return (
     <>
-      <div className="flex h-screen w-full mt-10 bg-white">
+      <div className="flex w-full bg-white">
       <Image
         height={4000}
         width={4000}
