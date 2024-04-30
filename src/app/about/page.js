@@ -10,7 +10,7 @@ const About = () => {
           <p className="font-lg md:text-xl lg:text-2xl font-bold text-blue-700">
             CSSE <span>(Computer Society Of Software Engineers)</span>
           </p>
-          <p className="font-semibold text-lg mb-10 text-indigo-400 italic">- "Spark to better initiative"</p>
+          <p className="font-semibold text-lg mb-10 text-indigo-400 italic">- Spark to better initiative</p>
           <div className="font-base text-lg">
             <p>
               Founded in the year 2013, by Alumni Respected Ankit Porwal and
