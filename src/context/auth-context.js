@@ -1,35 +1,27 @@
-'use client'
+"use client"
 
-import { LoaderIcon } from "lucide-react"
-import { useRouter } from "next/navigation"
-import { createContext, useEffect } from "react"
+import { createContext, Dispatch, useReducer } from 'react'
 
-const Loading = () => {
-  return (
-    <div className="flex h-screen flex-1 justify-center items-center">
-      <LoaderIcon className="animate-spin h-24 ml-1" />
-    </div>
-  )
+const INITIAL_AUTH_STATE = {
+  email: '',
+  isAdmin: false
 }
 
-export const AuthContext = createContext<{}>({ session: {}, status: 'loading' })
+export const SET_CURRENT_VIEW = 'SET_CURRENT_AUTH'
+
+const ViewReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_AUTH':
+      return { ...state, email: action.payload.email, isAdmin: action.payload.isAdmin}
+    default:
+      return state
+  }
+}
+
+export const AuthContext = createContext([INITIAL_AUTH_STATE, () => null])
 
 export const AuthProvider = ({ children }) => {
-  // init
-  const router = useRouter()
-  const userEmail = localStorage.getItem('technoUser')
+  const [state, dispatch] = useReducer(ViewReducer, INITIAL_AUTH_STATE)
 
-  // useEffect(() => {
-  //   if (!session) {
-  //     router.replace('/')
-  //   } else {
-  //     router.replace('/me')
-  //   }
-  // }, [status, session])
-
-  return (
-    <AuthContext.Provider value={{ userEmail, status }}>
-      {status === 'loading'? <Loading /> : children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={[state, dispatch]}>{children}</AuthContext.Provider>
 }

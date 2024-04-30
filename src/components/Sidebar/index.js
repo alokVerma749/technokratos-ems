@@ -114,10 +114,10 @@ export default function MiniDrawer({ children }) {
     { icon: <FeedbackIcon />, target: '/feedback' }
   ];
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar sx={{background:'#4f46e5'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
