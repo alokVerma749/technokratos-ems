@@ -1,5 +1,6 @@
 import React from "react";
 import Member from "./member";
+import HigherPost from "./higherPost";
 
 const About = () => {
   const members = [
@@ -150,6 +151,35 @@ const About = () => {
     },
   ];
 
+  const higherPost=[
+    {
+      id: 1,
+      name: "Shivam Verma",
+      contactNo: "9793736695",
+      email: "010sssachin@gmail.com",
+      post:"Student Secretary",
+      year:"Btech 4th yr"
+    },
+    {
+      id: 2,
+      name: "Himanshu Dubey",
+      contactNo:"8853321995",
+      email: "johndoe@example.com",
+      post: "Student Vice Secretary",
+      year:"BTeach 3rd yr"
+    },
+
+    {
+      id: 3,
+      name: "Hardik Dwivedi",
+      contactNo: "987654321",
+      email: "emilysmith@example.com",
+      post: "Student Joint Treasurer",
+      year:"MCA 2nd yr"
+    },
+
+  ]
+
   return (
     <>
       <section className="mb-4">
@@ -182,7 +212,16 @@ const About = () => {
           </div>
         </div>
       </section>
-      <h2 className="text-3xl font-bold border-b-2 mb-2 pb-2 text-indigo-600 flex justify-center items-center">
+      <h2 className="text-3xl font-bold underline text-indigo-600 flex justify-center items-center">
+        Higher Post
+      </h2>
+      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
+        {higherPost.map((item) => {
+          return <HigherPost {...item} key={item.id} />;
+        })}
+      </div>
+      <h2 className="text-3xl font-bold underline text-indigo-600 flex justify-center items-center">
+
         Our Current Members
       </h2>
       <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
@@ -190,6 +229,7 @@ const About = () => {
           return <Member {...item} key={item.id} />;
         })}
       </div>
+      
     </>
   );
 };
