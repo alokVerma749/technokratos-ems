@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-function EventCard({ name, description, noOfMember, venue, type}) {
+function EventCard({ name, description, participants, venue, type}) {
  
   return (
     <Card className='shadow-xl rounded w-full md:w-[400px] lg:w-[370px] m-6 p-2 hover:shadow-2xl'>
@@ -33,7 +33,7 @@ function EventCard({ name, description, noOfMember, venue, type}) {
       <div className='flex items-center justify-between w-full p-2'>
         <div className='flex gap-1'>
           <PersonIcon/>
-          {noOfMember}
+          {participants?.length}
         </div>
         <div className='flex gap-1'>
           <LocationOnIcon/>
