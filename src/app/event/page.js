@@ -27,7 +27,7 @@ const Event = () => {
 
   return (
     <div>
-      <p>Formal Events</p>
+      <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Our Events</p>
       <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
         {events.map((item) => {
           return <EventCard {...item} key={item.id} />;
