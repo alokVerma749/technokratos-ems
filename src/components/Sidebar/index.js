@@ -107,7 +107,7 @@ export default function MiniDrawer() {
 
   const icons = [
     { icon: <HomeIcon />, target: '/' },
-    { icon: <CalendarMonthIcon />, target: '/events' },
+    { icon: <CalendarMonthIcon />, target: '/event' },
     { icon: <InfoIcon />, target: '/about' },
     { icon: <EmojiEventsIcon />, target: '/winners' },
     { icon: <FeedbackIcon />, target: '/feedback' }
