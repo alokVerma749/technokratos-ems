@@ -10,7 +10,7 @@ const Event = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('/api/getevents');
+        const response = await fetch(`/api/getevents?cache=${Date.now()}`);
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }
@@ -20,9 +20,10 @@ const Event = () => {
         console.error('Error fetching events:', error);
       }
     };
-
-    fetchEvents()
-  }, [])
+  
+    fetchEvents();
+  }, []);
+  
 
   return (
     <div>
