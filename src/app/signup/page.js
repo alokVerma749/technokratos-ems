@@ -2,6 +2,7 @@
 
 import { toast } from '@/components/ui/use-toast';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const Signup = () => {
@@ -194,13 +195,13 @@ const Signup = () => {
             </form>
             <p className="text-xs text-center sm:px-6 dark:text-gray-600">
               Already have an account?{' '}
-              <a
+              <Link
                 rel="noopener noreferrer"
-                href="#"
+                href="/login"
                 className="underline dark:text-gray-800"
               >
                 Sign in
-              </a>
+              </Link>
             </p>
           </div>
         </div>
