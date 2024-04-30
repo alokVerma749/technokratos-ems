@@ -25,6 +25,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import Link from 'next/link';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
 
 const drawerWidth = 240;
 
@@ -174,7 +175,34 @@ export default function MiniDrawer({ children }) {
           ))}
         </List>
         <Divider />
-
+        <List>
+          {['Create Event'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+                component={Link}
+                to={"/createevent"}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {<NoteAddIcon 
+                    style={{color:"green"}}
+                  />}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
