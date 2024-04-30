@@ -54,7 +54,7 @@ const CreateEvent = () => {
 
   return (
     <>
-      <div className="flex h-screen w-full mt-10 bg-white">
+      <div className="flex w-full mt-10 bg-white">
       <Image
         height={4000}
         width={4000}
@@ -64,7 +64,7 @@ const CreateEvent = () => {
       />
       <div className="flex flex-col w-full items-center justify-center p-5 mx-auto">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl font-bold text-center text-indigo-600">Create Event</h1>
+          <h1 className="text-2xl font-bold text-center text-indigo-600 lg:text-4xl mb-8">Create Event</h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-1 text-sm">
               <label htmlFor="eventName" className="block px-4 dark:text-gray-600">
