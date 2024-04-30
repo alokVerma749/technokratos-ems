@@ -11,7 +11,7 @@ const MerchCard = ({name,price}) => {
                 <p className="text-gray-700 text-sm"> ${price}</p>
             </div>
             <div className="px-6 pb-2">
-                <button className="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-4 rounded">
+                <button className="bg-indigo-600 hover:bg-indigo-800  text-white font-bold py-2 px-4 rounded">
                 Buy Now
                 </button>
             </div>
