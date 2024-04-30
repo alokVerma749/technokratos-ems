@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex h-screen w-full bg-white">
+      <div className="flex w-full bg-white">
         <Image
           height={4000}
           width={4000}
