@@ -185,7 +185,7 @@ export default function MiniDrawer({ children }) {
                   px: 2.5,
                 }}
                 component={Link}
-                to={"/createevent"}
+                to={"/event/create"}
               >
                 <ListItemIcon
                   sx={{

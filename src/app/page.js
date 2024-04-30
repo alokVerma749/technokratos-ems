@@ -20,7 +20,7 @@ export default function Home() {
     <h2 className="font-extrabold text-6xl min-w-4/5">
      Welcome, To <span className="text-indigo-600">Technokratos'24</span>{" "}
     </h2>
-    <p className="text-gray-600">
+    <p className="text-gray-600 text-sm">
      your premier destination for organizing both formal and informal events
      with precision and flair. At TechnoKratos, we pride ourselves on seamlessly
      blending professionalism with creativity to curate unforgettable
