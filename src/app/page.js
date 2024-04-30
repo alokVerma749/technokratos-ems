@@ -11,6 +11,7 @@ import { CarouselPlugin } from "@/components/ImageSlider";
 import { Button } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { indigo } from "@mui/material/colors";
+import Link from 'next/link';
 
 export default function Home() {
  const [isLogin, setIsLogin] = useState(true);
@@ -32,16 +33,19 @@ export default function Home() {
      TechnoKratos EMS for unparalleled event management expertise and let us
      turn your occasions into extraordinary moments
     </p>
-    <Button
-     variant="contained"
-     color="inherit"
-     size="medium"
-     style={{ color: "white", background: "rgb(79,70,229)" }}
-     className="md:w-2/5"
-     startIcon={<EmojiEventsIcon />}
-    >
-     See Our Events
-    </Button>
+    <Link href="/event">
+        <Button
+        variant="contained"
+        color="inherit"
+        size="medium"
+        style={{ color: "white", background: "rgb(79,70,229)" }}
+        className="md:w-2/5"
+        startIcon={<EmojiEventsIcon />}
+        >
+        See Our Events
+        </Button>
+    </Link>
+    
    </div>
    <CarouselPlugin className="max-w-1/2" />
   </div>
