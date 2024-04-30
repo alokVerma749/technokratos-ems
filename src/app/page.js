@@ -24,7 +24,7 @@ export default function Home() {
      your premier destination for organizing both formal and informal events
      with precision and flair. At TechnoKratos, we pride ourselves on seamlessly
      blending professionalism with creativity to curate unforgettable
-     experiences. Whether you're planning a corporate gathering, a conference,
+     experiences. Whether you are planning a corporate gathering, a conference,
      or a casual social event, our dedicated team ensures every detail is
      meticulously managed, from conceptualization to execution. With our
      innovative approach and commitment to excellence, we transform your vision
