@@ -6,16 +6,17 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 
 const CreateEvent = () => {
-  const [user, setUser] = useState({
+  const [event, setEvent] = useState({
     name: '',
-    email: '',
-    password: '', branch: '',
-    roll: '',
-    year: '',
-    branch: ''
+    participants: [],
+    description: '', 
+    timing: '',
+    venue: '',
+    type: '',
+    fee: ''
   })
-
   const [isSubmitting, setIsSubmitting] = useState(false)
+  console.log(event);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -26,26 +27,27 @@ const CreateEvent = () => {
       const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
+        body: JSON.stringify(event)
       }
-      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/register', options)
+      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/event', options)
       const jsonResponse = await response.json()
       if (jsonResponse.success) {
         toast({ title: "Success", description: "registered successfully" })
-        setUser({
+        setEvent({
           name: '',
-          email: '',
-          password: '', 
-          branch: '',
-          roll: '',
-          year: '',
-          branch: ''
+          participants: [],
+          description: '', 
+          timing: '',
+          venue: '',
+          type: '',
+          fee: ''
         })
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to register' })
       }
 
     } catch (error) {
+      console.log(error)
       toast({ title: "Error", description: "Something went wrong" })
     } finally {
       setIsSubmitting(false)
@@ -76,11 +78,11 @@ const CreateEvent = () => {
                 id="eventName"
                 placeholder="Enter Event Name"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventName}
+                value={event.name}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventName: e.target.value
+                    name: e.target.value
                   }));
                 }}
               />
@@ -95,11 +97,11 @@ const CreateEvent = () => {
                 id="eventDescription"
                 placeholder="Enter Event Description"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventDescription}
+                value={event.description}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventDescription: e.target.value
+                    description: e.target.value
                   }));
                 }}
               />
@@ -115,11 +117,11 @@ const CreateEvent = () => {
                 id="eventVenue"
                 placeholder="Enter Event Venue"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventVenue}
+                value={event.venue}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventVenue: e.target.value
+                   venue: e.target.value
                   }));
                 }}
               />
@@ -135,11 +137,11 @@ const CreateEvent = () => {
                 id="eventFee"
                 placeholder="Enter Event Fee"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventFee}
+                value={event.fee}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventFee: e.target.value
+                    fee: e.target.value
                   }));
                 }}
               />
@@ -155,11 +157,11 @@ const CreateEvent = () => {
                 id="eventTime"
                 placeholder="Enter Event Time"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventTime}
+                value={event.timing}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventTime: e.target.value
+                    timing: e.target.value
                   }));
                 }}
               />
@@ -173,57 +175,17 @@ const CreateEvent = () => {
                 name="eventType"
                 id="eventType"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventType}
+                value={event.type}
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    eventType: e.target.value
+                    type: e.target.value
                   }));
                 }}
               >
                 <option value="solo">Solo</option>
                 <option value="group">Group</option>
               </select>
-            </div>
-
-            <div className="space-y-1 text-sm">
-              <label htmlFor="eventBanner" className="block px-4 dark:text-gray-600">
-                Event Banner
-              </label>
-              <input
-                type="text"
-                name="eventBanner"
-                id="eventBanner"
-                placeholder="Enter Event Banner URL"
-                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventBanner}
-                onChange={(e) => {
-                  setEvent((prevEvent) => ({
-                    ...prevEvent,
-                    eventBanner: e.target.value
-                  }));
-                }}
-              />
-            </div>
-
-            <div className="space-y-1 text-sm">
-              <label htmlFor="eventFeeDetails" className="block px-4 dark:text-gray-600">
-                Event Fee Details
-              </label>
-              <input
-                type="text"
-                name="eventFeeDetails"
-                id="eventFeeDetails"
-                placeholder="Enter Event Fee Details"
-                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                value={event.eventFeeDetails}
-                onChange={(e) => {
-                  setEvent((prevEvent) => ({
-                    ...prevEvent,
-                    eventFeeDetails: e.target.value
-                  }));
-                }}
-              />
             </div>
 
             <button type="submit" className="relative inline-block font-medium group py-1.5 px-2.5 w-full">
