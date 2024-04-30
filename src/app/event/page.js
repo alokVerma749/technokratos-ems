@@ -119,7 +119,7 @@ const Event = () => {
   return (
     <div>
       <p>Formal Events</p>
-      <div className="flex flex-wrap justify-start items-center space-x-10 p-10">
+      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
         {events.map((item) => {
           return <EventCard {...item} key={item.id} />;
         })}
