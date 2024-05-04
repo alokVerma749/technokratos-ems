@@ -4,6 +4,7 @@ import { toast } from "@/components/ui/use-toast"
 import { AuthContext, SET_CURRENT_AUTH } from "@/context/auth-context"
 import Image from "next/image"
 import Link from "next/link"
+import { redirect, useRouter } from "next/navigation"
 import React, { useContext, useState } from "react"
 
 const Login = () => {
@@ -11,6 +12,7 @@ const Login = () => {
     email: '',
     password: '',
   })
+  const router = useRouter()
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [, dispatch] = useContext(AuthContext)
@@ -40,6 +42,7 @@ const Login = () => {
           email: '',
           password: '',
         })
+        router.push('/')
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to login' })
       }

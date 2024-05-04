@@ -3,6 +3,7 @@
 import { toast } from '@/components/ui/use-toast';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 const handleLogin = async ({ email, password }) => {
@@ -37,6 +38,7 @@ const Signup = () => {
     branch: ''
   })
 
+  const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e) => {
@@ -63,7 +65,8 @@ const Signup = () => {
           year: '',
           branch: ''
         })
-        handleLogin(user)
+        await handleLogin(user)
+        router.push('/')
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to register' })
       }
