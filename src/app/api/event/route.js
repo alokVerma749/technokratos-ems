@@ -1,10 +1,10 @@
-import { isAdmin } from "@/utils/isAdmin"
+import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import Event from "@/models/event.model"
 
 export async function POST(request) {
   try {
-    if (isAdmin(LoggedUser)) {
+    if (checkAuthUser()?.isAdmin) {
       return Response.json({ success: false, message: 'Admin protected route' })
     }
     const { name, user, description, timing, banner, venue, fee, type } = await request.json()

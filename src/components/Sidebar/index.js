@@ -97,7 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MiniDrawer({ children }) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
-  const [{ email, isAdmin }, dispatch] = React.useContext(AuthContext)
+  const [{ email, isAdmin }] = React.useContext(AuthContext)
 
   const handleDrawerOpen = () => {
     setOpen(true)

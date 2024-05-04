@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, Dispatch, useReducer } from 'react'
+import { createContext, useReducer } from 'react'
 
 const INITIAL_AUTH_STATE = {
   email: '',

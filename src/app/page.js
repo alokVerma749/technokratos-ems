@@ -4,13 +4,8 @@ import { CarouselPlugin } from "@/components/ImageSlider"
 import { Button } from "@mui/material"
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents"
 import Link from 'next/link'
-import { useContext } from "react"
-import { AuthContext, SET_CURRENT_AUTH } from "@/context/auth-context"
-// import { isAdmin } from "@/utils/isAdmin"
 
 export default function Home() {
-  const [{ email, isAdmin }, dispatch] = useContext(AuthContext)
-  // dispatch({ type: SET_CURRENT_AUTH, payload: { email: '', isAdmin: isAdmin() } })
   return (
     <div className="flex justify-between gap-4 flex-col-reverse md:flex-row">
       <div className="flex flex-col md:w-1/2 mt-12 gap-5 p-3">

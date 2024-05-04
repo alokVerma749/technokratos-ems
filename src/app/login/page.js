@@ -1,9 +1,10 @@
 'use client'
 
 import { toast } from "@/components/ui/use-toast"
+import { AuthContext, SET_CURRENT_AUTH } from "@/context/auth-context"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -12,6 +13,8 @@ const Login = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [, dispatch] = useContext(AuthContext)
+
 
 
   const handleSubmit = async (e) => {
@@ -25,14 +28,17 @@ const Login = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
       }
+
       const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/login', options)
       const jsonResponse = await response.json()
-      localStorage.setItem('technoUser', jsonResponse.email)
+
+      await dispatch({ type: SET_CURRENT_AUTH, payload: { email: jsonResponse.email || '', isAdmin: (jsonResponse.email===process.env.NEXT_PUBLIC_ADMIN_EMAIL) } })
+
       if (jsonResponse.success) {
         toast({ title: "Success", description: "Login successfully" })
         setUser({
           email: '',
-          password: '', 
+          password: '',
         })
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to login' })
@@ -60,7 +66,7 @@ const Login = () => {
             <h1 className="text-2xl font-bold text-center text-indigo-600">Login</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
 
-            <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-sm">
                 <label htmlFor="email" className="block px-4 dark:text-gray-600">
                   Email
                 </label>
