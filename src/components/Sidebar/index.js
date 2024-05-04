@@ -26,6 +26,8 @@ import { styled, useTheme } from '@mui/material/styles'
 import Toolbar from '@mui/material/Toolbar'
 import Link from 'next/link'
 import * as React from 'react'
+import { toast } from '../ui/use-toast'
+import { useRouter } from 'next/navigation'
 
 const drawerWidth = 240
 
@@ -96,9 +98,23 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer({ children }) {
   const theme = useTheme()
+  const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const [{ email, isAdmin }] = React.useContext(AuthContext)
   const [, dispatch] = React.useContext(AuthContext)
+
+
+  const handleLogout = async () => {
+    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/logout', { method: 'GET' })
+    const jsonResponse = await response.json()
+    await dispatch({ type: SET_CURRENT_AUTH, payload: { email: '', isAdmin: false } })
+    if (jsonResponse.success) {
+      toast({ title: "Success", description: "Logged out successfully" })
+      router.push('/')
+    } else {
+      toast({ title: "Failed", description: jsonResponse?.message || 'Failed to logout' })
+    }
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -157,9 +173,9 @@ export default function MiniDrawer({ children }) {
             <div className='flex items-center gap-2'>
               {
                 email ?
-                  <Link href={'/logout'}>
+                  <div onClick={handleLogout}>
                     <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log out</Button>
-                  </Link> :
+                  </div> :
                   <Link href={'/login'}>
                     <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log in</Button>
                   </Link>

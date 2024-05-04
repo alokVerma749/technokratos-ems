@@ -1,6 +1,7 @@
 import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
+import { cookies } from "next/headers"
 
 export async function POST(request) {
   try {
@@ -28,13 +29,8 @@ export async function POST(request) {
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
       }
-
-      return new Response(JSON.stringify({ success: true, message: 'logged in', email }), {
-        headers: {
-          "Content-Type": "application/json",
-          "Set-Cookie": `user=${email}`
-        }
-      })
+      cookies().set('user', email, { httpOnly: true, secure: true, sameSite: 'strict' });
+      return new Response(JSON.stringify({ success: true, message: 'logged in', email }))
     }
 
 
