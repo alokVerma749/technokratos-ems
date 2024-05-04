@@ -10,7 +10,7 @@ const Event = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`/api/getevents?cache=${Date.now()}`);
+        const response = await fetch('/api/getevents',{ next: { revalidate: 10 } })
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }
