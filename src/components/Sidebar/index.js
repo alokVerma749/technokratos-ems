@@ -1,33 +1,32 @@
 "use client"
 
-import * as React from 'react';
-import { Button } from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import InfoIcon from '@mui/icons-material/Info';
-import CategoryIcon from '@mui/icons-material/Category';
-import FeedbackIcon from '@mui/icons-material/Feedback';
-import Link from 'next/link';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
+import CategoryIcon from '@mui/icons-material/Category'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import FeedbackIcon from '@mui/icons-material/Feedback'
+import HomeIcon from '@mui/icons-material/Home'
+import InfoIcon from '@mui/icons-material/Info'
+import MenuIcon from '@mui/icons-material/Menu'
+import NoteAddIcon from '@mui/icons-material/NoteAdd'
+import { Button } from '@mui/material'
+import MuiAppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import CssBaseline from '@mui/material/CssBaseline'
+import Divider from '@mui/material/Divider'
+import MuiDrawer from '@mui/material/Drawer'
+import IconButton from '@mui/material/IconButton'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import { styled, useTheme } from '@mui/material/styles'
+import Toolbar from '@mui/material/Toolbar'
+import Link from 'next/link'
+import * as React from 'react'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -36,7 +35,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-});
+})
 
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
@@ -48,7 +47,7 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
-});
+})
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -57,7 +56,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-}));
+}))
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -75,7 +74,7 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}));
+}))
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -92,19 +91,19 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       '& .MuiDrawer-paper': closedMixin(theme),
     }),
   }),
-);
+)
 
 export default function MiniDrawer({ children }) {
-  const theme = useTheme();
+  const theme = useTheme()
   const [open, setOpen] = React.useState(false)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const icons = [
     { icon: <HomeIcon />, target: '/' },
@@ -112,7 +111,7 @@ export default function MiniDrawer({ children }) {
     { icon: <InfoIcon />, target: '/about' },
     { icon: <CategoryIcon />, target: '/merchandise' },
     { icon: <FeedbackIcon />, target: '/feedback' }
-  ];
+  ]
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -131,7 +130,7 @@ export default function MiniDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <div className='flex items-center w-full justify-between'>
-            <h1>Technokratos&apos;24 EMS</h1>
+            <h1>Technokratos&apos24 EMS</h1>
             <div className='flex items-center gap-2'>
               <Link href={'/login'}>
                 <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log In</Button>
@@ -209,5 +208,5 @@ export default function MiniDrawer({ children }) {
         {children}
       </Box>
     </Box>
-  );
+  )
 }
