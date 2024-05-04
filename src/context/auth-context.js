@@ -7,7 +7,7 @@ const INITIAL_AUTH_STATE = {
   isAdmin: false
 }
 
-export const SET_CURRENT_VIEW = 'SET_CURRENT_AUTH'
+export const SET_CURRENT_AUTH = 'SET_CURRENT_AUTH'
 
 const ViewReducer = (state, action) => {
   switch (action.type) {
