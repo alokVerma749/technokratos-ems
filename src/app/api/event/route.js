@@ -4,7 +4,7 @@ import Event from "@/models/event.model"
 
 export async function POST(request) {
   try {
-    if (checkAuthUser()?.isAdmin) {
+    if (!(checkAuthUser()?.isAdmin)) {
       return Response.json({ success: false, message: 'Admin protected route' })
     }
     const { name, user, description, timing, banner, venue, fee, type } = await request.json()
