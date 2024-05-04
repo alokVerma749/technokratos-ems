@@ -96,7 +96,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer({ children }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -114,10 +114,10 @@ export default function MiniDrawer({ children }) {
     { icon: <FeedbackIcon />, target: '/feedback' }
   ];
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar sx={{background:'#4f46e5'}}>
+        <Toolbar sx={{ background: '#4f46e5' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -194,8 +194,8 @@ export default function MiniDrawer({ children }) {
                     justifyContent: 'center',
                   }}
                 >
-                  {<NoteAddIcon 
-                    style={{color:"green"}}
+                  {<NoteAddIcon
+                    style={{ color: "green" }}
                   />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />

@@ -1,16 +1,20 @@
+import { isAdmin } from "@/utils/isAdmin"
 import connectToDatabase from "../../../../config/mongodb"
-import Event from "@/models/event.model";
+import Event from "@/models/event.model"
 
 export async function POST(request) {
   try {
-    const { name, user, description, timing, banner, venue, fee, type } = await request.json();
+    if (isAdmin(LoggedUser)) {
+      return Response.json({ success: false, message: 'Admin protected route' })
+    }
+    const { name, user, description, timing, banner, venue, fee, type } = await request.json()
 
-    await connectToDatabase();
+    await connectToDatabase()
 
     const existingEvent = await Event.findOne({ name }).exec()
 
     if (existingEvent) {
-      return Response.json({ success: false, message: 'event already exist' })
+      return Response.json({ success: false, message: 'event already exist' }, { status: 500 })
     }
 
     const newEntry = new Event({ name, user, description, timing, banner, venue, fee, type })
@@ -18,9 +22,9 @@ export async function POST(request) {
     try {
       await newEntry.save()
 
-      return Response.json({ success: true, message: 'event created successfully' })
+      return Response.json({ success: true, message: 'event created successfully' }, { status: 200 })
     } catch (saveError) {
-      return Response.json({ success: false, message: 'Error saving entry' })
+      return Response.json({ success: false, message: 'Error saving entry' }, { status: 500 })
     }
 
   } catch (error) {
