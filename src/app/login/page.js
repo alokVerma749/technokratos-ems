@@ -8,8 +8,8 @@ import React, { useContext, useState } from "react"
 
 const Login = () => {
   const [user, setUser] = useState({
-    name: '',
     email: '',
+    password: '',
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)

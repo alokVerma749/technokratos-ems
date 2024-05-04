@@ -1,31 +1,42 @@
+import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
 
 export async function POST(request) {
   try {
-    const { email, password } = await request.json()
 
-    await connectToDatabase()
+    const { email: cookieEmail, isAdmin } = checkAuthUser()
 
-    const existingUser = await User.findOne({ email }).exec()
-
-    if (!existingUser) {
-      return Response.json({ success: false, message: 'user does not exist' })
+    // check login info from cookie
+    if (cookieEmail) {
+      return Response.json({ success: true, message: 'Already logged in', email: cookieEmail, isAdmin }, { status: 200 })
     }
+    else {
+      const { email, password } = await request.json()
 
-    const DBPass = await existingUser.password
-    const isPasswordValid = DBPass === password
+      await connectToDatabase()
 
-    if (!isPasswordValid) {
-      return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
-    }
+      const existingUser = await User.findOne({ email }).exec()
 
-    return new Response(JSON.stringify({ success: true, message: 'logged in', email }), {
-      headers: {
-        "Content-Type": "application/json",
-        "Set-Cookie": `user=${email}`
+      if (!existingUser) {
+        return Response.json({ success: false, message: 'user does not exist' })
       }
-    })
+
+      const DBPass = await existingUser.password
+      const isPasswordValid = DBPass === password
+
+      if (!isPasswordValid) {
+        return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
+      }
+
+      return new Response(JSON.stringify({ success: true, message: 'logged in', email }), {
+        headers: {
+          "Content-Type": "application/json",
+          "Set-Cookie": `user=${email}`
+        }
+      })
+    }
+
 
   } catch (error) {
     return Response.json({ success: false, error: error.message }, { status: 404 })

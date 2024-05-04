@@ -5,6 +5,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
+const handleLogin = async ({ email, password }) => {
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  }
+
+  try {
+    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/login', options)
+
+    if (!response.ok) {
+      throw new Error('Failed to login')
+    }
+
+    const data = await response.json()
+    dispatch({ type: SET_CURRENT_AUTH, payload: { email: data.email || '', isAdmin: data.isAdmin } })
+
+  } catch (error) {
+    console.error('Error checking user cookie:', error);
+  }
+}
+
 const Signup = () => {
   const [user, setUser] = useState({
     name: '',
@@ -35,12 +57,13 @@ const Signup = () => {
         setUser({
           name: '',
           email: '',
-          password: '', 
+          password: '',
           branch: '',
           roll: '',
           year: '',
           branch: ''
         })
+        handleLogin(user)
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to register' })
       }

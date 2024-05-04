@@ -1,6 +1,6 @@
 "use client"
 
-import { AuthContext } from '@/context/auth-context'
+import { AuthContext, SET_CURRENT_AUTH } from '@/context/auth-context'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import CategoryIcon from '@mui/icons-material/Category'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
@@ -98,6 +98,7 @@ export default function MiniDrawer({ children }) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
   const [{ email, isAdmin }] = React.useContext(AuthContext)
+  const [, dispatch] = React.useContext(AuthContext)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -106,6 +107,26 @@ export default function MiniDrawer({ children }) {
   const handleDrawerClose = () => {
     setOpen(false)
   }
+
+  React.useEffect(() => {
+    const handleCheckAuth = async () => {
+      try {
+        const response = await fetch('/api/login', { method: 'POST' })
+
+        if (!response.ok) {
+          throw new Error('Failed to login')
+        }
+
+        const data = await response.json()
+        dispatch({ type: SET_CURRENT_AUTH, payload: { email: data.email || '', isAdmin: data.isAdmin } })
+
+      } catch (error) {
+        console.error('Error checking user cookie:', error);
+      }
+    }
+
+    handleCheckAuth()
+  }, [])
 
   const icons = [
     { icon: <HomeIcon />, target: '/' },
