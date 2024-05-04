@@ -9,9 +9,8 @@ import { AuthContext, SET_CURRENT_AUTH } from "@/context/auth-context"
 // import { isAdmin } from "@/utils/isAdmin"
 
 export default function Home() {
-  const [a, dispatch] = useContext(AuthContext);
+  const [{ email, isAdmin }, dispatch] = useContext(AuthContext)
   // dispatch({ type: SET_CURRENT_AUTH, payload: { email: '', isAdmin: isAdmin() } })
-  console.log(a,'###context')
   return (
     <div className="flex justify-between gap-4 flex-col-reverse md:flex-row">
       <div className="flex flex-col md:w-1/2 mt-12 gap-5 p-3">

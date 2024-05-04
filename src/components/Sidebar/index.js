@@ -1,5 +1,6 @@
 "use client"
 
+import { AuthContext } from '@/context/auth-context'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import CategoryIcon from '@mui/icons-material/Category'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
@@ -96,6 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MiniDrawer({ children }) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
+  const [{ email, isAdmin }, dispatch] = React.useContext(AuthContext)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -130,11 +132,17 @@ export default function MiniDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <div className='flex items-center w-full justify-between'>
-            <h1>Technokratos&apos24 EMS</h1>
+            <h1>Technokratos&apos;24 EMS</h1>
             <div className='flex items-center gap-2'>
-              <Link href={'/login'}>
-                <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log In</Button>
-              </Link>
+              {
+                email ?
+                  <Link href={'/logout'}>
+                    <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log out</Button>
+                  </Link> :
+                  <Link href={'/login'}>
+                    <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log in</Button>
+                  </Link>
+              }
 
             </div>
           </div>
@@ -174,7 +182,7 @@ export default function MiniDrawer({ children }) {
           ))}
         </List>
         <Divider />
-        <List>
+        {isAdmin && <List>
           {['Create Event'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -201,7 +209,7 @@ export default function MiniDrawer({ children }) {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List>}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
