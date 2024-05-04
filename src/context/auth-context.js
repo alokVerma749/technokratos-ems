@@ -12,7 +12,7 @@ export const SET_CURRENT_VIEW = 'SET_CURRENT_AUTH'
 const ViewReducer = (state, action) => {
   switch (action.type) {
     case 'SET_CURRENT_AUTH':
-      return { ...state, email: action.payload.email, isAdmin: action.payload.isAdmin}
+      return { ...state, email: action.payload.email, isAdmin: action.payload.isAdmin }
     default:
       return state
   }
