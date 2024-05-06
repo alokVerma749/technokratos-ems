@@ -3,7 +3,7 @@ import React from "react"
 
 async function fetchEvents() {
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/getevents', { cache: "no-store" })
+    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/getevents', { next: { revalidate: 0 } })
     if (!response.ok) {
       throw new Error('Failed to fetch events')
     }
