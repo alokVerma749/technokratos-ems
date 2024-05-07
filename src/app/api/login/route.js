@@ -2,12 +2,7 @@ import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
 import { cookies } from "next/headers"
-
-// Function to compare a password with its hash
-async function comparePassword(password, hashedPassword) {
-  const isMatch = await bcrypt.compare(password, hashedPassword);
-  return isMatch;
-}
+import bcrypt from 'bcryptjs'
 
 export async function POST(request) {
   try {
@@ -18,6 +13,7 @@ export async function POST(request) {
     if (cookieEmail) {
       return Response.json({ success: true, message: 'Already logged in', email: cookieEmail, isAdmin }, { status: 200 })
     }
+    // If cookie is not present then...
     else {
       const { email, password } = await request.json()
 
@@ -30,7 +26,7 @@ export async function POST(request) {
       }
 
       const hashedPassword = await existingUser.password
-      const isPasswordValid = comparePassword( password, hashedPassword)
+      const isPasswordValid = await bcrypt.compare(password, hashedPassword)
 
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
