@@ -3,6 +3,12 @@ import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
 import { cookies } from "next/headers"
 
+// Function to compare a password with its hash
+async function comparePassword(password, hashedPassword) {
+  const isMatch = await bcrypt.compare(password, hashedPassword);
+  return isMatch;
+}
+
 export async function POST(request) {
   try {
 
@@ -23,8 +29,8 @@ export async function POST(request) {
         return Response.json({ success: false, message: 'user does not exist' })
       }
 
-      const DBPass = await existingUser.password
-      const isPasswordValid = DBPass === password
+      const hashedPassword = await existingUser.password
+      const isPasswordValid = comparePassword( password, hashedPassword)
 
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })

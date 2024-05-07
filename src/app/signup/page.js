@@ -7,10 +7,14 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 const handleLogin = async ({ email, password }) => {
+  const hashedPassword = await bcrypt.hash(password, 10)
+
+  console.log(hashedPassword,'###')
+
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ email, hashedPassword })
   }
 
   try {
@@ -32,7 +36,8 @@ const Signup = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    password: '', branch: '',
+    password: '', 
+    branch: '',
     roll: '',
     year: '',
     branch: ''
