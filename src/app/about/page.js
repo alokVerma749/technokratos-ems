@@ -215,7 +215,7 @@ const About = () => {
       <h2 className="text-3xl font-bold underline text-indigo-600 flex justify-center items-center">
         Higher Post
       </h2>
-      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
+      <div className="flex flex-wrap flex-col md:flex-row justify-center mx-auto">
         {higherPost.map((item) => {
           return <HigherPost {...item} key={item.id} />;
         })}
@@ -224,7 +224,7 @@ const About = () => {
 
         Our Current Members
       </h2>
-      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
+      <div className="flex flex-wrap flex-col md:flex-row justify-center mx-auto">
         {members.map((item) => {
           return <Member {...item} key={item.id} />;
         })}

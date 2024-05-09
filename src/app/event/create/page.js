@@ -22,7 +22,6 @@ const CreateEvent = () => {
 
     try {
       setIsSubmitting(true)
-
       const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
