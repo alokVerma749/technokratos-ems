@@ -1,5 +1,6 @@
-import EventCard from "@/components/EventCard"
-import React from "react"
+import EventCard from '@/components/EventCard'
+import React from 'react'
+
 
 async function fetchEvents() {
   try {
@@ -19,7 +20,11 @@ async function fetchEvents() {
   }
 }
 
-const Event = async () => {
+const Dashboard = async () => {
+  /**
+   * 1. add Delete button to all events
+   * 
+   */
   const events = await fetchEvents() || []
 
   return (
@@ -27,6 +32,7 @@ const Event = async () => {
       <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Our Events</p>
       <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
         {events?.map((item) => {
+          // NOTE for SACHIN: you can use other UI other than tha this card, feel free to use you creativity...
           return <EventCard {...item} key={item.id} />
         })}
       </div>
@@ -34,4 +40,4 @@ const Event = async () => {
   )
 }
 
-export default Event
+export default Dashboard
