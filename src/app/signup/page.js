@@ -32,10 +32,10 @@ const Signup = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    password: '', branch: '',
+    password: '', 
+    branch: '',
     roll: '',
     year: '',
-    branch: ''
   })
 
   const router = useRouter()
