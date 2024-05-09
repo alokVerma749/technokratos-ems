@@ -2,6 +2,7 @@ import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
 import { cookies } from "next/headers"
+import bcrypt from "bcryptjs"
 
 export async function POST(request) {
   try {
@@ -24,7 +25,7 @@ export async function POST(request) {
       }
 
       const DBPass = await existingUser.password
-      const isPasswordValid = DBPass === password
+      const isPasswordValid = await bcrypt.compare(password, DBPass)
 
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
