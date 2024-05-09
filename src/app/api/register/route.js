@@ -1,11 +1,15 @@
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models";
+import bcrypt from 'bcryptjs'
+
 
 export async function POST(request) {
   try {
     const { name, email, password, branch, roll, payment, year } = await request.json();
 
-    await connectToDatabase();
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    await connectToDatabase()
 
     const existingUser = await User.findOne({ email }).exec()
 
@@ -13,7 +17,7 @@ export async function POST(request) {
       return Response.json({ success: false, message: 'user already exist' })
     }
 
-    const newEntry = new User({ name, email, password, branch, roll, payment, year })
+    const newEntry = new User({ name, email, password: hashedPassword, branch, roll, payment, year })
 
     try {
       await newEntry.save()

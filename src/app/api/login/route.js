@@ -2,7 +2,7 @@ import { checkAuthUser } from "@/utils/checkAuthUser"
 import connectToDatabase from "../../../../config/mongodb"
 import User from "@/models/user.models"
 import { cookies } from "next/headers"
-import bcrypt from "bcryptjs"
+import bcrypt from 'bcryptjs'
 
 export async function POST(request) {
   try {
@@ -13,6 +13,7 @@ export async function POST(request) {
     if (cookieEmail) {
       return Response.json({ success: true, message: 'Already logged in', email: cookieEmail, isAdmin }, { status: 200 })
     }
+    // If cookie is not present then...
     else {
       const { email, password } = await request.json()
 
@@ -24,8 +25,9 @@ export async function POST(request) {
         return Response.json({ success: false, message: 'user does not exist' })
       }
 
-      const DBPass = await existingUser.password
-      const isPasswordValid = await bcrypt.compare(password, DBPass)
+      const hashedPassword = await existingUser.password
+      const isPasswordValid = await bcrypt.compare(password, hashedPassword)
+
 
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
