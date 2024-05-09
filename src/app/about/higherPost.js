@@ -4,7 +4,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 function HigherPost({id, name, contactNo, email, post, year}) {
   return (
-    <div className="flex flex-col gap-1 border-2 my-6 shadow-xl rounded w-full md:w-[400px] lg:w-[370px] m-6 p-2 hover:shadow-2xl">
+    <div className="flex flex-col gap-1 border-2 shadow-xl rounded w-full sm:w-[70%] sm:mx-auto md: md:w-[330px] lg:w-[360px] my-6 p-2 hover:shadow-2xl bg-blue-100">
         <Image
           width="50"
           height="50"

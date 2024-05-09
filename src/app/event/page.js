@@ -1,37 +1,47 @@
-import EventCard from "@/components/EventCard"
-import React from "react"
+import EventCard from "@/components/EventCard";
+import React from "react";
 
 async function fetchEvents() {
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/getevents', {
-      method: 'GET',
-      next: {
-        revalidate: 0
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_BASE_URL + "/api/getevents",
+      {
+        method: "GET",
+        next: {
+          revalidate: 0,
+        },
       }
-    })
+    );
     if (!response.ok) {
-      throw new Error('Failed to fetch events')
+      throw new Error("Failed to fetch events");
     }
-    const data = await response.json()
-    return data.events
+    const data = await response.json();
+    return data.events;
   } catch (error) {
-    console.error('Error fetching events:', error)
+    console.error("Error fetching events:", error);
   }
 }
 
 const Event = async () => {
-  const events = await fetchEvents() || []
+  const events = (await fetchEvents()) || [];
 
   return (
     <div>
-      <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Our Events</p>
-      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
+      <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">
+        Our Events
+      </p>
+      <div className="flex flex-wrap flex-col md:flex-row justify-center mx-auto">
         {events?.map((item) => {
-          return <EventCard {...item} key={item.id} />
+          return (
+            <EventCard
+              {...item}
+              key={item.id}
+            />
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Event
+export default Event;
