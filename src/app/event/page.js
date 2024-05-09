@@ -1,12 +1,14 @@
 import EventCard from "@/components/EventCard"
 import React from "react"
-export const revalidate = 0;
 
 async function fetchEvents() {
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/getevents', { 
-      method: 'GET'
-     })
+    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/getevents', {
+      method: 'GET',
+      next: {
+        revalidate: 0
+      }
+    })
     if (!response.ok) {
       throw new Error('Failed to fetch events')
     }

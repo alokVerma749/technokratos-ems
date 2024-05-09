@@ -4,7 +4,7 @@ import { toast } from "@/components/ui/use-toast"
 import { AuthContext, SET_CURRENT_AUTH } from "@/context/auth-context"
 import Image from "next/image"
 import Link from "next/link"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import React, { useContext, useState } from "react"
 
 const Login = () => {

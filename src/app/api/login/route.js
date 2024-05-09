@@ -28,6 +28,7 @@ export async function POST(request) {
       const hashedPassword = await existingUser.password
       const isPasswordValid = await bcrypt.compare(password, hashedPassword)
 
+
       if (!isPasswordValid) {
         return Response.json({ success: false, message: 'Invalid password' }, { status: 500 })
       }
