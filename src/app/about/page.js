@@ -258,7 +258,7 @@ const About = () => {
       email: "not avaliable",
       post: "Student Joint Treasurer",
       year:"MCA 2nd yr",
-      imgsrc:"/assets/hdm2.jpg"
+      imgsrc:"/assets/HDm2.jpg"
     },
 
   ]
