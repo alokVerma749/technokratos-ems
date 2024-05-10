@@ -33,7 +33,7 @@ const EventPage = async ({ params }) => {
   // use this event to render data
   return (
     <div>
-      <div className="mx-auto flex flex-col justify-center items-center w-[80%] shadow-xl p-2 brightness-100 hover:brightness-115 pb-10">
+      <div className="mx-auto flex flex-col justify-center items-center w-full lg:w-[80%] shadow-xl p-2 brightness-100 hover:brightness-115 pb-10">
         <div className="relative w-full ">
           <Image
             src="https://source.unsplash.com/random/1000x1000/?5"
@@ -42,26 +42,26 @@ const EventPage = async ({ params }) => {
             height={150}
             className="border-2 rounded-lg w-full h-[70vh]"
           />
-          <div className="absolute top-32 left-32 text-5xl font-semibold text-white space-x-3 text-center leading-relaxed hover:scale-110 transition-all duration-500">
+          <div className="absolute top-32 left-[20%] lg:text-5xl sm:text-4xl font-semibold text-white space-x-3 text-center leading-relaxed hover:scale-110 transition-all duration-500">
             <p>San Diego Magazine 2017</p>
             <p>Best Of San Diego Party</p>
           </div>
         </div>
-        <div className="flex flex-row justify-around items-center w-full">
+        <div className="flex flex-col lg:flex-row justify-around items-center w-full">
           <div className="mt-6">
-            <div className="flex justify-center gap-x-3">
+            <div className="flex justify-center gap-x-3 m-2">
               <SlCalender className="text-2xl font-semibold" />
               <span className="text-xl text-fuchsia-600">{data.timing}</span>
             </div>
-            <div className="flex justify-center gap-x-3">
+            <div className="flex justify-center gap-x-3 m-2">
               <GiAlarmClock className="text-2xl font-semibold" />
               <span className="text-xl text-fuchsia-600">{data.timing}</span>
             </div>
-            <div className="flex justify-center gap-x-3">
+            <div className="flex justify-center gap-x-3 m-2">
               <FaLocationDot className="text-2xl font-semibold" />
               <span className="text-xl text-fuchsia-600">{data.venue}</span>
             </div>
-            <div className="flex justify-center gap-x-3">
+            <div className="flex justify-center gap-x-3 m-2">
               <MdDescription className="text-2xl font-semibold" />
               <span className="text-xl text-fuchsia-600">
                 {data.description}
@@ -69,8 +69,10 @@ const EventPage = async ({ params }) => {
             </div>
           </div>
           <div>
-            <LuDollarSign className="text-2xl font-semibold" />
-            <p className="text-xl text-fuchsia-600">{data.fee}</p>
+            <div className="flex flex-row lg:flex-col">
+              <LuDollarSign className="text-2xl font-semibold mx-4" />
+              <p className="text-xl text-fuchsia-600">{data.fee}</p>
+            </div>
             <button
               type="button"
               class="py-2 px-5 me-2 mt-4 mb-2 text-lg border-black font-medium text-gray-900 focus:outline-none bg-white rounded-lg border hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 hover:scale-105 transition-all"
