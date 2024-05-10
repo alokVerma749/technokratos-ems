@@ -10,7 +10,8 @@ const About = () => {
       contactNo: "639330647",
       email: "010sssachin@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/scm1.jpg'
     },
     {
       id: 2,
@@ -18,7 +19,8 @@ const About = () => {
       contactNo: "8707293899",
       email: "uktiwari023@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/utm1.jpg'
     },
 
     {
@@ -27,7 +29,8 @@ const About = () => {
       contactNo: "9161005786",
       email: "frzansari20@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/afam1.jpg'
     },
 
     {
@@ -36,7 +39,8 @@ const About = () => {
       contactNo: "8355068537",
       email: "itsdivyanshu379@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/dkm1.jpg'
     },
 
     {
@@ -45,7 +49,8 @@ const About = () => {
       contactNo: "6392806914",
       email: "kn168679@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/knm1.png'
     },
 
     {id: 6,
@@ -53,7 +58,8 @@ const About = () => {
       contactNo: "9839616657",
       email: "srivastavashrey01@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/ssm1.png'
     },
 
     {
@@ -62,7 +68,8 @@ const About = () => {
       contactNo: "8545882207",
       email: "mishrasiddhi141@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/smm1.png'
     },
 
     {
@@ -71,7 +78,8 @@ const About = () => {
       contactNo: "8382883705",
       email: "mishrarupali.342@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/rmm1.png'
     },
 
     {
@@ -80,7 +88,8 @@ const About = () => {
       contactNo: "7985139739",
       email: "mansibajpai93@gmail.com",
       std: "1st year",
-      branch:"MCA"
+      branch:"MCA",
+      imgsrc:'/assets/sbm1.png'
     },
 
     {
@@ -89,7 +98,8 @@ const About = () => {
       contactNo: "7250680899",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/atb2.jpg'
     },
 
     {
@@ -98,7 +108,8 @@ const About = () => {
       contactNo: "8318638602",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/adtb2.jpg'
     },
 
     {
@@ -107,7 +118,8 @@ const About = () => {
       contactNo: "9559039538",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/aksb2.jpg'
     },
 
     {
@@ -116,7 +128,8 @@ const About = () => {
       contactNo: "8534899071",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/asb2.jpg'
     },
 
     {
@@ -125,7 +138,8 @@ const About = () => {
       contactNo: "7906015931",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/hrb2.jpg'
     },
 
     {
@@ -134,7 +148,8 @@ const About = () => {
       contactNo: "9528616138",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/knb2.jpg'
     },
 
     {
@@ -143,7 +158,8 @@ const About = () => {
       contactNo: "8382832716",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/mkb2.jpg'
     },
 
     {
@@ -152,7 +168,8 @@ const About = () => {
       contactNo: "7268823057",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/pyb2.jpg'
     },
 
     {
@@ -161,7 +178,8 @@ const About = () => {
       contactNo: "8866448670",
       email: "Not Avaliable",
       std: "2nd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/vsb2.jpg'
     },
 
     {
@@ -170,7 +188,8 @@ const About = () => {
       contactNo: "9118993969",
       email: "Not Avaliable",
       std: "3rd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/agb3.jpg'
     },
 
     {
@@ -179,7 +198,8 @@ const About = () => {
       contactNo: "9453106856",
       email: "Not Avaliable",
       std: "3rd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/kgb3.jpg'
     },
 
     {
@@ -188,7 +208,8 @@ const About = () => {
       contactNo: "7014950194",
       email: "Not Avaliable",
       std: "3rd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/pab3.jpg'
     },
     {
       id: 21,
@@ -196,7 +217,8 @@ const About = () => {
       contactNo: "7355376959",
       email: "Not Avaliable",
       std: "3rd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/sgb3.jpg'
     },
     {
       id: 22,
@@ -204,7 +226,8 @@ const About = () => {
       contactNo: "9027474094",
       email: "Not Avaliable",
       std: "3rd year",
-      branch:"BTech IT"
+      branch:"BTech IT",
+      imgsrc:'/assets/vgb3.jpg'
     },
   ];
 
@@ -213,26 +236,29 @@ const About = () => {
       id: 1,
       name: "Shivam Verma",
       contactNo: "9793736695",
-      email: "010sssachin@gmail.com",
+      email: "not avaliable",
       post:"Student Secretary",
-      year:"Btech 4th yr"
+      year:"Btech 4th yr",
+      imgsrc:"/assets/sdb4.jpg"
     },
     {
       id: 2,
       name: "Himanshu Dubey",
       contactNo:"8853321995",
-      email: "johndoe@example.com",
+      email: "not avaliable",
       post: "Student Vice Secretary",
-      year:"BTeach 3rd yr"
+      year:"BTeach 3rd yr",
+      imgsrc:"/assets/hdb3.jpg"
     },
 
     {
       id: 3,
       name: "Hardik Dwivedi",
       contactNo: "987654321",
-      email: "emilysmith@example.com",
+      email: "not avaliable",
       post: "Student Joint Treasurer",
-      year:"MCA 2nd yr"
+      year:"MCA 2nd yr",
+      imgsrc:"/assets/HDm2.jpg"
     },
 
   ]
