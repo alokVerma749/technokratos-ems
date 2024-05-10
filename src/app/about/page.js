@@ -9,145 +9,202 @@ const About = () => {
       name: "Sachin Chhauhan",
       contactNo: "639330647",
       email: "010sssachin@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
     {
       id: 2,
-      name: "John Doe",
-      contactNo: "123456789",
-      email: "johndoe@example.com",
+      name: "Utkarsh Tiwari",
+      contactNo: "8707293899",
+      email: "uktiwari023@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 3,
-      name: "Emily Smith",
-      contactNo: "987654321",
-      email: "emilysmith@example.com",
+      name: "Ahmad Faraz Ansari",
+      contactNo: "9161005786",
+      email: "frzansari20@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 4,
-      name: "Michael Johnson",
-      contactNo: "555123456",
-      email: "michaelj@example.com",
+      name: "Divyanshu Kanaujia",
+      contactNo: "8355068537",
+      email: "itsdivyanshu379@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 5,
-      name: "Jessica Brown",
-      contactNo: "789456123",
-      email: "jessicabrown@example.com",
+      name: "Krishna Nand",
+      contactNo: "6392806914",
+      email: "kn168679@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
-    {
-      id: 6,
-      name: "David Wilson",
-      contactNo: "456789123",
-      email: "davidwilson@example.com",
+    {id: 6,
+      name: "Shrey Srivastava",
+      contactNo: "9839616657",
+      email: "srivastavashrey01@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 7,
-      name: "Maria Garcia",
-      contactNo: "321654987",
-      email: "mariag@example.com",
+      name: "Siddhi Mishra",
+      contactNo: "8545882207",
+      email: "mishrasiddhi141@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 8,
-      name: "James Martinez",
-      contactNo: "159357852",
-      email: "jamesmartinez@example.com",
+      name: "Rupali Mishra",
+      contactNo: "8382883705",
+      email: "mishrarupali.342@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 9,
-      name: "Linda Taylor",
-      contactNo: "753951456",
-      email: "lindataylor@example.com",
+      name: "Sanchita Bajpai",
+      contactNo: "7985139739",
+      email: "mansibajpai93@gmail.com",
+      std: "1st year",
+      branch:"MCA"
     },
 
     {
       id: 10,
-      name: "Christopher Lee",
-      contactNo: "369258147",
-      email: "christopherlee@example.com",
+      name: "Abhishrestha Tiwari",
+      contactNo: "7250680899",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 11,
-      name: "Amanda Hernandez",
-      contactNo: "951753369",
-      email: "amandah@example.com",
+      name: "Aditya Tripathi",
+      contactNo: "8318638602",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 12,
-      name: "Daniel Kim",
-      contactNo: "123987456",
-      email: "danielkim@example.com",
+      name: "Amit Kumar Sahani",
+      contactNo: "9559039538",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 13,
-      name: "Melissa Nguyen",
-      contactNo: "789654123",
-      email: "melissanguyen@example.com",
+      name: "Anshul Sengar",
+      contactNo: "8534899071",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 14,
-      name: "Ryan Perez",
-      contactNo: "456321789",
-      email: "ryanperez@example.com",
+      name: "Himani Rajput",
+      contactNo: "7906015931",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 15,
-      name: "Jennifer Davis",
-      contactNo: "987321654",
-      email: "jenniferdavis@example.com",
+      name: "Kumari Nisha",
+      contactNo: "9528616138",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 16,
-      name: "Matthew Brown",
-      contactNo: "654987321",
-      email: "matthewbrown@example.com",
+      name: "Manoj Kumar",
+      contactNo: "8382832716",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 17,
-      name: "Laura Rodriguez",
-      contactNo: "321789654",
-      email: "laurarodriguez@example.com",
+      name: "Priya Yadav",
+      contactNo: "7268823057",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 18,
-      name: "Kevin Gonzalez",
-      contactNo: "654123987",
-      email: "kevingonzalez@example.com",
+      name: "Vishesh Singh",
+      contactNo: "8866448670",
+      email: "Not Avaliable",
+      std: "2nd year",
+      branch:"BTech IT"
     },
 
     {
       id: 19,
-      name: "Sarah Miller",
-      contactNo: "987654321",
-      email: "sarahmiller@example.com",
+      name: "Alabhya Goyal",
+      contactNo: "9118993969",
+      email: "Not Avaliable",
+      std: "3rd year",
+      branch:"BTech IT"
+    },
+
+    {
+      id: 19,
+      name: "Komal Gupta",
+      contactNo: "9453106856",
+      email: "Not Avaliable",
+      std: "3rd year",
+      branch:"BTech IT"
     },
 
     {
       id: 20,
-      name: "Jason Moore",
-      contactNo: "321654987",
-      email: "jasonmoore@example.com",
+      name: "Perneeta Awasthi",
+      contactNo: "7014950194",
+      email: "Not Avaliable",
+      std: "3rd year",
+      branch:"BTech IT"
     },
-
     {
       id: 21,
-      name: "Karen White",
-      contactNo: "654987321",
-      email: "karenwhite@example.com",
+      name: "Shristi Singh",
+      contactNo: "7355376959",
+      email: "Not Avaliable",
+      std: "3rd year",
+      branch:"BTech IT"
+    },
+    {
+      id: 22,
+      name: "Vaibhav Garg",
+      contactNo: "9027474094",
+      email: "Not Avaliable",
+      std: "3rd year",
+      branch:"BTech IT"
     },
   ];
 

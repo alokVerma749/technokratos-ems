@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
-function Member({ id, name, contactNo, email }) {
+function Member({ id, name, contactNo, email,std,branch }) {
   return (
     <div className="flex flex-col gap-1 border-2 shadow-xl rounded w-full sm:w-[70%] sm:mx-auto md: md:w-[330px] lg:w-[360px] my-6 p-2 hover:shadow-2xl bg-gray-200">
       <Image
@@ -18,7 +18,7 @@ function Member({ id, name, contactNo, email }) {
       <div className="flex justify-between items-center w-full p-1">
         <h2 className="text-black font-bold">{name}</h2>
         <p className="text-gray-600 text-sm">
-          MCA 1 <sup>st</sup> year
+          {branch} {std}
         </p>
       </div>
       <div className="flex items-center justify-between">
