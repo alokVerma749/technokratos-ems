@@ -28,10 +28,10 @@ const Dashboard = async () => {
   const events = await fetchEvents() || []
   console.log(events)
   return (
-    <div>
-      <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Our Events</p>
-      <div className="flex flex-col my-10 px-20">
-       
+    <div className='relative'>
+      <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Events</p>
+      <button className='absolute top-14 right-8 py-2 px-4 bg-red-500 text-white font-semibold rounded hover:scale-105 transition-all'>Clear Events</button>
+      <div className="flex flex-col my-10 md:px-20 p-0">
         {events?.map((item) => {
           // NOTE for SACHIN: you can use other UI other than tha this card, feel free to use you creativity...
           return <EventList {...item} key={item.id} />
