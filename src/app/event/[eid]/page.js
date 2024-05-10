@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 async function fetchEvent(eid) {
@@ -14,15 +15,13 @@ async function fetchEvent(eid) {
 }
 
 const EventPage = async ({ params }) => {
-  const eid = params.eid
+  const eid = params?.eid
   const event = await fetchEvent(eid) || []
   const { data } = event
   // use this event to render data
   return (
     <div>
-      EventPage
-      {data.name}
-      {data.type}
+      <Image src="" alt="" />
     </div>
   )
 }

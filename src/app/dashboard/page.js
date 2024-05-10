@@ -1,6 +1,6 @@
-import EventCard from '@/components/EventCard'
 import React from 'react'
-
+import EventPage from '../event/[eid]/page';
+import EventList from '../eventList';
 
 async function fetchEvents() {
   try {
@@ -26,14 +26,15 @@ const Dashboard = async () => {
    * 
    */
   const events = await fetchEvents() || []
-
+  console.log(events)
   return (
     <div>
       <p className="flex w-full items-center justify-center font-bold text-indigo-600 border-b-2 pb-2 uppercase text-3xl">Our Events</p>
-      <div className="flex flex-col md:flex-row flex-wrap justify-start items-center space-x-10 p-0 md:p-10">
+      <div className="flex flex-col my-10 px-20">
+       
         {events?.map((item) => {
           // NOTE for SACHIN: you can use other UI other than tha this card, feel free to use you creativity...
-          return <EventCard {...item} key={item.id} />
+          return <EventList {...item} key={item.id} />
         })}
       </div>
     </div>
