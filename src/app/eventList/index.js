@@ -34,13 +34,13 @@ function EventList({ name, description, participants, venue,type }) {
       </div>
       <div className="flex flex-col items-center md:space-y-10 space-y-2">
         <button
-          class="w-32 text-center align-middle select-none font-sans text-white font-semibold uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-blue-800 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-blue-500"
+          className="w-32 text-center align-middle select-none font-sans text-white font-semibold uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-blue-800 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-blue-500"
           type="button"
         >
           Edit
         </button>
         <button
-          class="w-32 align-middle select-none font-sans text-white font-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-red-500 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-red-400"
+          className="w-32 align-middle select-none font-sans text-white font-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-red-500 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-red-400"
           type="button"
         >
           Delete
