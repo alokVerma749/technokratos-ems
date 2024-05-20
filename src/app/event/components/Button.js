@@ -2,16 +2,16 @@
 
 import { toast } from '@/components/ui/use-toast'
 import { AuthContext } from '@/context/auth-context'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 function Button({ eid, data }) {
   const [{ email }] = useContext(AuthContext)
-  const isAlreadySubscribed = data.participants?.includes(email)
+  const [isAlreadySubscribed, setIsAlreadySubscribed] = useState(data.participants?.includes(email) || false)
 
   const handleRegister = async () => {
 
     if (!email) {
-      alert("Email is required to register.")
+      toast({ title: "Warning", description: "Please Login first!" })
       return
     }
 
@@ -28,6 +28,7 @@ function Button({ eid, data }) {
 
       if (result.success) {
         toast({ title: "Success", description: "Registration successful!" })
+        setIsAlreadySubscribed(true)
       } else {
         toast({ title: "Warning", description: "Registration failed:" + result.message })
       }
