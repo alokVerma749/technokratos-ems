@@ -5,7 +5,6 @@ export async function GET(request) {
   try {
     await connectToDatabase()
 
-    console.log(request,'###')
     const eid = request.url.split('/').pop()
     const event = await Event.findById(eid)
 
