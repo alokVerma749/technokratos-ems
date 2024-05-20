@@ -1,5 +1,6 @@
 import connectToDatabase from "../../../../../config/mongodb"
 import Event from "@/models/event.model"
+export const dynamic = 'force-dynamic'
 
 export async function GET(request) {
   try {

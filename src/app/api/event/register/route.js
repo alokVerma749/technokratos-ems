@@ -15,7 +15,6 @@ export async function POST(request) {
     if (!event) {
       return Response.json({ success: false, message: 'Event not found' })
     }
-    console.log(event)
     if (!(event?.participants?.includes(email))) {
       event.participants.push(email)
       await event.save()
