@@ -27,7 +27,7 @@ const eventSchema = new mongoose.Schema({
   type: {
     type: String,
   },
-  participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  participants: [{ type: String }],
   fee:{
     type: String
   }

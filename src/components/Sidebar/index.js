@@ -25,9 +25,9 @@ import ListItemText from '@mui/material/ListItemText'
 import { styled, useTheme } from '@mui/material/styles'
 import Toolbar from '@mui/material/Toolbar'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import * as React from 'react'
 import { toast } from '../ui/use-toast'
-import { useRouter } from 'next/navigation'
 
 const drawerWidth = 240
 
