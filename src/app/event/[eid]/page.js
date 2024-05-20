@@ -1,36 +1,40 @@
-import Image from "next/image";
-import React from "react";
-import { SlCalender } from "react-icons/sl";
-import { GiAlarmClock } from "react-icons/gi";
-import { FaLocationDot } from "react-icons/fa6";
-import { LuDollarSign } from "react-icons/lu";
-import { MdDescription } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import Link from "next/link";
+import Image from "next/image"
+import React from "react"
+import { FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa"
+import { FaLocationDot } from "react-icons/fa6"
+import { GiAlarmClock } from "react-icons/gi"
+import { LuDollarSign } from "react-icons/lu"
+import { MdDescription } from "react-icons/md"
+import { SlCalender } from "react-icons/sl"
+import Button from "../components/Button"
+
+
 async function fetchEvent(eid) {
   try {
-    console.log(eid, "&&&&&&&&&");
     const response = await fetch(
-      process.env.NEXT_PUBLIC_BASE_URL + `/api/event/${eid}`
-    );
+      process.env.NEXT_PUBLIC_BASE_URL + `/api/event/${eid}`,
+      {
+        method: "GET",
+        next: {
+          revalidate: 0,
+        },
+      }
+    )
     if (!response.ok) {
-      throw new Error("Failed to fetch event");
+      throw new Error("Failed to fetch event")
     }
-    const data = await response.json();
-    return data;
+    const data = await response.json()
+    return data
   } catch (error) {
-    console.error("Error fetching events:", error);
+    console.error("Error fetching events:", error)
   }
 }
 
 const EventPage = async ({ params }) => {
-  const eid = params?.eid;
-  const event = (await fetchEvent(eid)) || [];
-  const { data } = event;
-  console.log("Data", data);
-  // use this event to render data
+  const eid = params?.eid
+  const event = (await fetchEvent(eid)) || []
+  const { data } = event
+
   return (
     <div>
       <div className="mx-auto flex flex-col justify-center items-center w-full lg:w-[80%] shadow-xl p-2 brightness-100 hover:brightness-115 pb-10 bg-blue-50">
@@ -43,8 +47,8 @@ const EventPage = async ({ params }) => {
             className="border-2 rounded-lg w-full h-[70vh]"
           />
           <div className="absolute top-32 left-[20%] lg:text-5xl sm:text-4xl font-semibold text-white space-x-3 text-center leading-relaxed hover:scale-110 transition-all duration-500">
-            <p>San Diego Magazine 2017</p>
-            <p>Best Of San Diego Party</p>
+            <p>{data?.name}</p>
+            <p>{data?.description.slice(0, 30) + '....'}</p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-around items-center w-full">
@@ -73,30 +77,12 @@ const EventPage = async ({ params }) => {
               <LuDollarSign className="text-2xl font-semibold mx-4" />
               <p className="text-xl text-fuchsia-600">{data.fee}</p>
             </div>
-            <button
-              type="button"
-              class="ml-8 py-2 px-5 me-2 mt-4 mb-2 text-lg border-black font-medium text-gray-900 focus:outline-none bg-white rounded-lg border hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 hover:scale-105 transition-all"
-            >
-              Register
-            </button>
+            <Button eid={eid} data={data} />
           </div>
         </div>
         <div>
           <p className="text-2xl font-semibold">Overview</p>
-          <p className="text-gray-700 font-medium p-4">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
-            asperiores corrupti provident optio nisi corporis porro doloribus
-            explicabo. Cupiditate repudiandae doloremque praesentium unde natus
-            nesciunt cum laborum quia quibusdam maxime distinctio, tempora
-            sapiente hic perspiciatis, molestiae itaque minima fugit error
-            numquam repellendus possimus, quae necessitatibus at rem! Autem
-            quasi assumenda reiciendis molestiae doloribus ratione nihil
-            repellendus aut voluptatibus. Minima ut dolore sit ab rem? Eveniet
-            velit a voluptatibus sapiente. Id nulla expedita numquam magni
-            consectetur rem delectus praesentium rerum veniam mollitia fugiat
-            aspernatur porro ullam autem voluptatibus minus nisi repudiandae,
-            ipsa cumque sequi et quasi accusantium? Amet quae est assumenda.
-          </p>
+          <p className="text-gray-700 font-medium p-4">{data?.description}</p>
         </div>
         <div>
           <p className="text-lg font-semibold text-gray-900">
@@ -110,7 +96,7 @@ const EventPage = async ({ params }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EventPage;
+export default EventPage

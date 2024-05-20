@@ -1,6 +1,33 @@
-import React from "react";
-import Image from "next/image";
-function EventList({ name, description, participants, venue,type }) {
+'use client'
+
+import React from "react"
+import Image from "next/image"
+import { toast } from "@/components/ui/use-toast"
+
+function EventList({ _id, name, description, participants, venue, type }) {
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch("/api/event",
+        {
+          method: "DELETE",
+          body: JSON.stringify({ eid: _id })
+        }
+      )
+      if (!response.ok) {
+        toast({ title: "Failure", description: "Deletion failed" })
+
+        throw new Error("Failed to delete event")
+      }
+      toast({ title: "Success", description: "Event deleted successfully, please reload" })
+
+      const data = await response.json()
+      return data
+    } catch (error) {
+      console.error("Error deleting events:", error)
+    }
+  }
+
   return (
     <div className="w-[90%] flex flex-col lg:flex-row justify-between items-center m-6 p-6 bg-slate-100 rounded-md brightness-90 hover:brightness-100">
       <Image
@@ -29,25 +56,26 @@ function EventList({ name, description, participants, venue,type }) {
           <span className="text-gray-600">{type}</span>
         </p>
         <div className="h-20 w-40 p-1">
-            Timmer
+          Timmer
         </div>
       </div>
       <div className="flex flex-col items-center md:space-y-10 space-y-2">
         <button
-          class="w-32 text-center align-middle select-none font-sans text-white font-semibold uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-blue-800 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-blue-500"
+          className="w-32 text-center align-middle select-none font-sans text-white font-semibold uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-blue-800 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-blue-500"
           type="button"
         >
           Edit
         </button>
         <button
-          class="w-32 align-middle select-none font-sans text-white font-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-red-500 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-red-400"
+          className="w-32 align-middle select-none font-sans text-white font-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-lg py-3.5 px-7 rounded-lg bg-red-500 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 hover:bg-red-400"
           type="button"
+          onClick={handleDelete}
         >
           Delete
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default EventList;
+export default EventList
