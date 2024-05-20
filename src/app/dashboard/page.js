@@ -31,7 +31,7 @@ const Dashboard = async () => {
       <button className='absolute top-14 right-8 py-2 px-4 bg-red-500 text-white font-semibold rounded hover:scale-105 transition-all'>Clear Events</button>
       <div className="flex flex-col my-10 p-0">
         {events?.map((item) => {
-          return <EventList {...item} key={item.id} />
+          return <EventList {...item} key={item._id} />
         })}
       </div>
     </div>

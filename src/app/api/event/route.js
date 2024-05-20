@@ -31,3 +31,21 @@ export async function POST(request) {
     return Response.json({ success: false, error: error.message })
   }
 }
+
+export async function DELETE(request) {
+  try {
+    if (!(checkAuthUser()?.isAdmin)) {
+      return Response.json({ success: false, message: 'Admin protected route' })
+    }
+    const { eid } = await request.json()
+
+    await connectToDatabase()
+
+    const res = await Event.findByIdAndDelete(eid)
+
+    return Response.json({ success: true, message: 'event deleted successfully' }, { status: 200 })
+
+  } catch (error) {
+    return Response.json({ success: false, error: error.message })
+  }
+}
