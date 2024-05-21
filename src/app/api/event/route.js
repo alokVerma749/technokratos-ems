@@ -35,7 +35,7 @@ export async function POST(request) {
 export async function DELETE(request) {
   try {
     if (!(checkAuthUser()?.isAdmin)) {
-      return Response.json({ success: false, message: 'Admin protected route' })
+      return Response.json({ success: false, message: 'Admin protected route' }, { status: 400 })
     }
     const { eid } = await request.json()
 
@@ -46,6 +46,6 @@ export async function DELETE(request) {
     return Response.json({ success: true, message: 'event deleted successfully' }, { status: 200 })
 
   } catch (error) {
-    return Response.json({ success: false, error: error.message })
+    return Response.json({ success: false, error: error.message }, { status: 500 })
   }
 }

@@ -26,7 +26,6 @@ export async function POST(request) {
         message: "Member registered successfully",
       })
     } catch (error) {
-      console.log(saveError)
       return Response.json({ success: false, message: "Error saving entry" })
     }
   } catch (error) {

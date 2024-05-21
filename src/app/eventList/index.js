@@ -14,12 +14,14 @@ function EventList({ _id, name, description, participants, venue, type }) {
           body: JSON.stringify({ eid: _id })
         }
       )
+      const jsonRes = await response.json()
       if (!response.ok) {
-        toast({ title: "Failure", description: "Deletion failed" })
+        toast({ title: "Warning", description: jsonRes.message || "Deletion failed" })
 
         throw new Error("Failed to delete event")
+      } else {
+        toast({ title: "Success", description: jsonRes.message || "Event deleted successfully, please reload" })
       }
-      toast({ title: "Success", description: "Event deleted successfully, please reload" })
 
       const data = await response.json()
       return data
