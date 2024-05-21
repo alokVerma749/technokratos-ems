@@ -3,6 +3,7 @@
 import { Button } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { useState } from 'react'
+import { toast } from '@/components/ui/use-toast'
 
 const Feedback = () => {
 	const [data, setData] = useState({
@@ -14,9 +15,28 @@ const Feedback = () => {
 		message: ''
 	})
 
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault()
-		// TODO: make api request
+		const res = await fetch('/api/feedback', {
+			method: 'POST',
+			body: JSON.stringify(data)
+		})
+		const response = await res.json()
+
+		if (response.success) {
+			setData({
+				firstName: '',
+				lastName: '',
+				email: '',
+				mobile: '',
+				branch: '',
+				message: ''
+			})
+
+			toast({ title: "Success", description: "Thanks for your valuable feedback!" })
+		} else {
+			toast({ title: "Error", description: response.message || 'Failed to send message' })
+		}
 	}
 
 	return (
