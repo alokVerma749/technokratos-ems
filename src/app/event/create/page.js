@@ -1,55 +1,61 @@
-'use client'
+"use client";
 
-import { toast } from '@/components/ui/use-toast'
-import Image from 'next/image'
-import React, { useState } from 'react'
+import { toast } from "@/components/ui/use-toast";
+import Image from "next/image";
+import React, { useState } from "react";
+import AssignMember from "../components/assignMember";
 
 const CreateEvent = () => {
   const [event, setEvent] = useState({
-    name: '',
+    name: "",
     participants: [],
-    description: '',
-    timing: '',
-    venue: '',
-    type: '',
-    fee: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+    description: "",
+    timing: "",
+    venue: "",
+    type: "",
+    fee: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      setIsSubmitting(true)
+      setIsSubmitting(true);
       const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(event)
-      }
-      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/event', options)
-      const jsonResponse = await response.json()
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(event),
+      };
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BASE_URL + "/api/event",
+        options
+      );
+      const jsonResponse = await response.json();
       if (jsonResponse.success) {
-        toast({ title: "Success", description: "registered successfully" })
+        toast({ title: "Success", description: "registered successfully" });
         setEvent({
-          name: '',
+          name: "",
           participants: [],
-          description: '',
-          timing: '',
-          venue: '',
-          type: '',
-          fee: ''
-        })
+          description: "",
+          timing: "",
+          venue: "",
+          type: "",
+          fee: "",
+        });
       } else {
-        toast({ title: "Failed", description: jsonResponse?.message || 'Failed to register' })
+        toast({
+          title: "Failed",
+          description: jsonResponse?.message || "Failed to register",
+        });
       }
-
     } catch (error) {
-      console.log(error)
-      toast({ title: "Error", description: "Something went wrong" })
+      console.log(error);
+      toast({ title: "Error", description: "Something went wrong" });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="flex w-full mt-10 bg-white">
@@ -62,10 +68,15 @@ const CreateEvent = () => {
       />
       <div className="flex flex-col w-full items-center justify-center p-5 mx-auto">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl font-bold text-center text-indigo-600 lg:text-4xl mb-8">Create Event</h1>
+          <h1 className="text-2xl font-bold text-center text-indigo-600 lg:text-4xl mb-8">
+            Create Event
+          </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventName" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventName"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Name
               </label>
               <input
@@ -78,14 +89,17 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    name: e.target.value
-                  }))
+                    name: e.target.value,
+                  }));
                 }}
               />
             </div>
 
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventDescription" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventDescription"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Description
               </label>
               <textarea
@@ -97,14 +111,17 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    description: e.target.value
-                  }))
+                    description: e.target.value,
+                  }));
                 }}
               />
             </div>
 
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventVenue" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventVenue"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Venue
               </label>
               <input
@@ -117,14 +134,17 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    venue: e.target.value
-                  }))
+                    venue: e.target.value,
+                  }));
                 }}
               />
             </div>
 
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventFee" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventFee"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Fee
               </label>
               <input
@@ -137,14 +157,17 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    fee: e.target.value
-                  }))
+                    fee: e.target.value,
+                  }));
                 }}
               />
             </div>
 
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventTime" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventTime"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Time
               </label>
               <input
@@ -157,14 +180,17 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    timing: e.target.value
-                  }))
+                    timing: e.target.value,
+                  }));
                 }}
               />
             </div>
 
             <div className="space-y-1 text-sm">
-              <label htmlFor="eventType" className="block px-4 dark:text-gray-600">
+              <label
+                htmlFor="eventType"
+                className="block px-4 dark:text-gray-600"
+              >
                 Event Type (Solo/Group)
               </label>
               <select
@@ -175,8 +201,8 @@ const CreateEvent = () => {
                 onChange={(e) => {
                   setEvent((prevEvent) => ({
                     ...prevEvent,
-                    type: e.target.value
-                  }))
+                    type: e.target.value,
+                  }));
                 }}
               >
                 <option value="solo">Solo</option>
@@ -184,7 +210,15 @@ const CreateEvent = () => {
               </select>
             </div>
 
-            <button type="submit" className="relative inline-block font-medium group py-1.5 px-2.5 w-full">
+            <div className="flex items-center justify-between">
+              <label htmlFor="" className="pl-4">Assign Member </label>
+              <AssignMember />
+            </div>
+
+            <button
+              type="submit"
+              className="relative inline-block font-medium group py-1.5 px-2.5 w-full"
+            >
               <span className="absolute inset-0 w-full h-full transition duration-400 ease-out transform translate-x-1 translate-y-1 bg-indigo-600 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
               <span className="absolute inset-0 w-full h-full bg-white border border-indigo-600 group-hover:bg-indigo-50"></span>
               <span className="relative text-indigo-600 ">Create Event</span>
@@ -193,7 +227,7 @@ const CreateEvent = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateEvent
+export default CreateEvent;
