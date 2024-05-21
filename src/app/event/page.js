@@ -16,7 +16,7 @@ async function fetchEvents() {
       throw new Error("Failed to fetch events");
     }
     const data = await response.json();
-    return data.events;
+    return data.modifiedEvents;
   } catch (error) {
     console.error("Error fetching events:", error);
   }
