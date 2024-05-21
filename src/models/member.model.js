@@ -23,6 +23,10 @@ const memberSchema=new mongoose.Schema({
     },
     assign:{
         type:[false, "No Event"],
+    },
+
+    memberString:{
+        type:String,
     }
 });
 

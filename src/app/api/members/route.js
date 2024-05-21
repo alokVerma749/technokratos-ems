@@ -10,7 +10,9 @@ export async function POST(request) {
     if (existingMember) {
       return Response.json({ success: false, message: "user already exist" });
     }
-    const newEntry = new Member({ name, course, branch, year, email });
+    const memString=name+" "+course+" "+branch+ " "+year+"year";
+    console.log(memString, "&&&&&&&&&&")
+    const newEntry = new Member({ name, course, branch, year, email, memberString:memString });
 
     try {
       await newEntry.save();
@@ -27,3 +29,4 @@ export async function POST(request) {
     return Response.json({ success: false, error: error.message });
   }
 }
+
