@@ -1,35 +1,26 @@
-import { useState, useEffect } from "react";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import Link from "next/link";
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { RiArrowDropDownLine } from "react-icons/ri"
 
 function AssignMember() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [members, setMembers] = useState([]);
+  const [isOpen, setIsOpen] = useState(false)
+  const [members, setMembers] = useState([])
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setIsOpen(!isOpen)
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const options = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({}),
-        };
-
-        const response = await fetch(
-          process.env.NEXT_PUBLIC_BASE_URL + "/api/getmembers",
-          options
-        );
-        const jsonResponse = await response.json();
-        setMembers(jsonResponse);
+        const response = await fetch("/api/members", { method: "GET" })
+        const jsonResponse = await response.json()
+        setMembers(jsonResponse)
       } catch (error) {
-        console.error("Failed to fetch members:", error);
+        console.error("Failed to fetch members:", error)
       }
-    };
+    }
 
-    fetchMembers();
-  }, []);
+    fetchMembers()
+  }, [])
 
   return (
     <div className="flex flex-col items-center">
@@ -65,7 +56,7 @@ function AssignMember() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default AssignMember;
+export default AssignMember
