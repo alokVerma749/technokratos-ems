@@ -7,18 +7,21 @@ const contributors = [
     role: 'Backend Developer',
     github: 'https://github.com/alokVerma749',
     portfolio: 'https://alokverma.vercel.app',
+    imgsrc:'/assets/alok.png'
   },
   {
     name: 'Sachin Chauhan',
     role: 'Frontend Developer',
     github: 'https://github.com/sachinchauhan010',
-    portfolio: 'https://sachinchauhan.vercel.app'
+    portfolio: 'https://sachinchauhan.vercel.app',
+    imgsrc:'/assets/scm1.jpg'
   },
   {
     name: 'Utkarsh Tiwari',
     role: 'Frontend Developer',
     github: 'https://github.com/imutkarsht',
-    portfolio: 'https://utkarsh-tiwari-portfolio.vercel.app/contact'
+    portfolio: 'https://utkarsh-tiwari-portfolio.vercel.app/contact',
+    imgsrc:'/assets/utm1.jpg'
   },
 ];
 
