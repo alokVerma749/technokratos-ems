@@ -1,12 +1,13 @@
 'use client'
 
 import { toast } from '@/components/ui/use-toast';
+import { AuthContext, SET_CURRENT_AUTH } from '@/context/auth-context';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react';
 
-const handleLogin = async ({ email, password }) => {
+const handleLogin = async ({ email, password }, dispatch) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -21,7 +22,7 @@ const handleLogin = async ({ email, password }) => {
     }
 
     const data = await response.json()
-    dispatch({ type: SET_CURRENT_AUTH, payload: { email: data.email || '', isAdmin: data.isAdmin } })
+    dispatch({ type: SET_CURRENT_AUTH, payload: { email: data.email || '', isAdmin: (data.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL) } })
 
   } catch (error) {
     console.error('Error checking user cookie:', error);
@@ -29,10 +30,12 @@ const handleLogin = async ({ email, password }) => {
 }
 
 const Signup = () => {
+  const [, dispatch] = useContext(AuthContext)
+
   const [user, setUser] = useState({
     name: '',
     email: '',
-    password: '', 
+    password: '',
     branch: '',
     roll: '',
     year: '',
@@ -65,7 +68,7 @@ const Signup = () => {
           year: '',
           branch: ''
         })
-        await handleLogin(user)
+        await handleLogin(user, dispatch)
         router.push('/')
       } else {
         toast({ title: "Failed", description: jsonResponse?.message || 'Failed to register' })
