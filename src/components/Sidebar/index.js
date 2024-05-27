@@ -38,6 +38,8 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  // background: 'red',
+  background: 'transparent'
 })
 
 const closedMixin = (theme) => ({
@@ -50,6 +52,9 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
+  // background: 'red'
+  background: 'transparent'
+
 })
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -57,6 +62,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
+  background: 'transparent',
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }))
@@ -65,9 +71,12 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
+  background: 'transparent',
+  boxShadow: 'none',
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
+
   }),
   ...(open && {
     marginLeft: drawerWidth,
@@ -154,8 +163,8 @@ export default function MiniDrawer({ children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ background: '#4f46e5' }}>
+      <AppBar position="fixed" open={open} sx={{ paddingTop: 0 }}>
+        <Toolbar sx={{ background: 'transparent' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -168,16 +177,16 @@ export default function MiniDrawer({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <div className='flex items-center w-full justify-between'>
+          <div className='flex items-center w-full justify-between bg-transparent'>
             <h1>Technokratos&apos;24 EMS</h1>
             <div className='flex items-center gap-2'>
               {
                 email ?
                   <div onClick={handleLogout}>
-                    <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log out</Button>
+                    <Button variant="contained" size='large' color='inherit' style={{ color: 'white' }} className='font-semibold bg-red-500 hover:bg-red-400'>Log out</Button>
                   </div> :
                   <Link href={'/login'}>
-                    <Button variant="contained" size='large' color='inherit' style={{ color: 'black' }}>Log in</Button>
+                    <Button variant="contained" size='large' color='inherit' style={{ color: 'white' }} className='font-semibold bg-red-500 hover:bg-red-400'>Log in</Button>
                   </Link>
               }
 
@@ -187,19 +196,20 @@ export default function MiniDrawer({ children }) {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className='text-white'>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
           {['Home', 'Events', 'About', 'Merchandize', 'Feedback'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={text} disablePadding sx={{ display: 'block', color: 'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
+                  color: 'white'
                 }}
                 component={Link}
                 to={icons[index].target}
@@ -209,6 +219,7 @@ export default function MiniDrawer({ children }) {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: 'white'
                   }}
                 >
                   {icons[index].icon}
@@ -242,13 +253,13 @@ export default function MiniDrawer({ children }) {
                     style={{ color: "green" }}
                   />}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0, color: 'white' }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, color: 'white' }}>
         <DrawerHeader />
         {children}
       </Box>
